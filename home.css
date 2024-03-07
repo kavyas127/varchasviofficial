@@ -69,6 +69,7 @@ h1{
     align-items: center;
     font-family: kaftus;
     flex-direction: row;
+    color: #04364A;
 }
 
 .first-page-left{
@@ -78,6 +79,8 @@ h1{
     height: 100vh;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    row-gap: 2rem;
 }
 
 .first-page-right{
@@ -86,3 +89,23 @@ h1{
     width: 50vw;
     height: 100vh;
 }
+
+.first-left-button{
+    width: 10vw;
+    height: 5vh;
+    background-color: #04364A;
+    border-radius: 20px;
+    cursor: pointer;
+    color: #ECF4D6;
+    transform: translateX(-50%);
+    font-family: poppins;
+    font-weight: 600;
+}
+
+.first-left-button:hover{
+    background-color: #104f64;
+    color: #ECF4D6;
+    font-family: poppins;
+    font-weight: 600;
+}
+
