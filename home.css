@@ -3,6 +3,11 @@
     src: url(fonts/Kaftus.ttf);
 }
 
+@font-face {
+    font-family: poppins;
+    src: url(fonts/Poppins-Regular.ttf);
+}
+
 body{
     margin: 0;
     padding: 0;
@@ -21,6 +26,9 @@ body{
     width: 100vw;
     align-items: center;
     z-index: 100;
+    font-family: poppins;
+    font-weight: 600;
+    font-size: 1rem;
 }
 
 .header-elements-left{
@@ -29,8 +37,8 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    column-gap: 2rem;
-    padding: 0 2rem;
+    column-gap: 4rem;
+    padding: 0 4rem;
     height: 10vh;
 }
 
@@ -38,16 +46,17 @@ body{
     height: 10vh;
     display: flex;
     flex-direction: row;
-    column-gap: 2rem;
+    column-gap: 4rem;
     position: relative;
     justify-content: center;
     align-items: center;
-    padding: 0 2rem;
+    padding: 0 4rem;
 }
 
 h1{
     padding: 0;
     margin: 0;
+    font-size: 3rem;
 }
 
 .first-page{
