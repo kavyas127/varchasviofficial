@@ -53,14 +53,13 @@ body{
     padding: 0 4rem;
 }
 
-h1{
+h1, h2{
     padding: 0;
     margin: 0;
-    font-size: 3rem;
 }
 
 .first-page{
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     background-color: #AAD9BB;
     display: flex;
@@ -81,6 +80,10 @@ h1{
     align-items: center;
     flex-direction: column;
     row-gap: 2rem;
+}
+
+.first-page-left-font{
+    font-size: 3rem;
 }
 
 .first-page-right{
@@ -107,5 +110,44 @@ h1{
     color: #ECF4D6;
     font-family: poppins;
     font-weight: 600;
+}
+
+.second-page{
+    width: 100%;
+    height: 100vh;
+    background-color: #ECF4D6;
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+
+.second-page-heading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+
+.second-page-heading-title{
+    display: flex;
+    position: relative;
+    height: fit-content;
+    margin-top: 4rem;
+    font-family: kaftus;
+    color: #04364A;
+    font-size: 2rem;
+}
+
+
+.second-page-heading-subtitle{
+    height: fit-content;
+    display: flex;
+    position: relative;
+    font-family: poppins;
+    font-size: 0.80rem;
+    font-weight: 600;
+    color: #04364A;
+    transform: translate(40%,-30%);
 }
 
