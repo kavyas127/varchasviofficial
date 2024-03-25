@@ -167,47 +167,62 @@ h1, h2{
 .img1{
     width: 15vw;
     height: 50vh;
+    filter: grayscale(100%);
+    transition: filter 0.1s ease;
 }
 
 .img1:hover{
     transform: scale(1.1);
+    filter: grayscale(0%);
 }
 
 .img2{
     width: 12vw;
     height: 50vh;
     transform: translateY(5%);
+    filter: grayscale(100%);
+    transition: filter 0.1s ease;
 }
 
 .img2:hover{
     transform: scale(1.1);
+    filter: grayscale(0%);
 }
 
 .img3{
     width: 17vw;
     height: 50vh;
+    filter: grayscale(100%);
+    transition: filter 0.1s ease;
 }
 
 .img3:hover{
     transform: scale(1.1);
+    filter: grayscale(0%);
 }
 
 .img4{
     width: 15vw;
     height: 50vh;
+    filter: grayscale(100%);
+    transition: filter 0.1s ease;
 }
 
 .img4:hover{
     transform: scale(1.1);
+    filter: grayscale(0%);
 }
 
 .img5{
     width: 20vw;
     height: 35vh;
+    filter: grayscale(100%);
+    transition: filter 0.1s ease;
 }
 
 .img5:hover{
     transform: scale(1.1);
+    filter: grayscale(0%);
 }
 
 .second-page-button{
