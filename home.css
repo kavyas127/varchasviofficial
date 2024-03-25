@@ -11,6 +11,7 @@
 body{
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 .logo{
@@ -23,7 +24,7 @@ body{
     position: fixed;
     justify-content: space-between;
     height: 10vh;
-    width: 100vw;
+    width: 100%;
     align-items: center;
     z-index: 100;
     font-family: poppins;
@@ -136,7 +137,7 @@ h1, h2{
     margin-top: 4rem;
     font-family: kaftus;
     color: #04364A;
-    font-size: 2rem;
+    font-size: 2.2rem;
 }
 
 
@@ -145,9 +146,85 @@ h1, h2{
     display: flex;
     position: relative;
     font-family: poppins;
-    font-size: 0.80rem;
+    font-size: 1rem;
     font-weight: 600;
     color: #04364A;
     transform: translate(40%,-40%);
 }
 
+.display{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    column-gap: 3rem;
+    transform: translateY(20%);
+}
+
+.img1{
+    width: 15vw;
+    height: 50vh;
+}
+
+.img1:hover{
+    transform: scale(1.1);
+}
+
+.img2{
+    width: 12vw;
+    height: 50vh;
+    transform: translateY(5%);
+}
+
+.img2:hover{
+    transform: scale(1.1);
+}
+
+.img3{
+    width: 17vw;
+    height: 50vh;
+}
+
+.img3:hover{
+    transform: scale(1.1);
+}
+
+.img4{
+    width: 15vw;
+    height: 50vh;
+}
+
+.img4:hover{
+    transform: scale(1.1);
+}
+
+.img5{
+    width: 20vw;
+    height: 35vh;
+}
+
+.img5:hover{
+    transform: scale(1.1);
+}
+
+.second-page-button{
+    width: 10vw;
+    height: 5vh;
+    font-family: poppins;
+    font-weight: 600;
+    color: #04364A;
+    background-color: #ECF4D6;
+    border: none;
+    bottom: 2rem;
+    position: absolute;
+    right: 2rem;
+    font-size: 1rem;
+}
+
+.second-page-button:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
