@@ -20,6 +20,7 @@ body{
 }
 
 .header{
+    color: #04364A;
     display: flex;
     position: fixed;
     justify-content: space-between;
@@ -111,6 +112,7 @@ h1, h2{
     color: #ECF4D6;
     font-family: poppins;
     font-weight: 600;
+    cursor: pointer;
 }
 
 .second-page{
@@ -174,6 +176,7 @@ h1, h2{
 .img1:hover{
     transform: scale(1.1);
     filter: grayscale(0%);
+    cursor: pointer;
 }
 
 .img2{
@@ -187,6 +190,7 @@ h1, h2{
 .img2:hover{
     transform: scale(1.1);
     filter: grayscale(0%);
+    cursor: pointer;
 }
 
 .img3{
@@ -199,6 +203,7 @@ h1, h2{
 .img3:hover{
     transform: scale(1.1);
     filter: grayscale(0%);
+    cursor: pointer;
 }
 
 .img4{
@@ -211,6 +216,7 @@ h1, h2{
 .img4:hover{
     transform: scale(1.1);
     filter: grayscale(0%);
+    cursor: pointer;
 }
 
 .img5{
@@ -223,6 +229,7 @@ h1, h2{
 .img5:hover{
     transform: scale(1.1);
     filter: grayscale(0%);
+    cursor: pointer;
 }
 
 .second-page-button{
