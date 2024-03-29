@@ -8,18 +8,18 @@
     src: url(fonts/Poppins-Regular.ttf);
 }
 
-body{
+body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
 }
 
-.logo{
+.logo {
     position: absolute;
     right: 50%;
 }
 
-.header{
+.header {
     color: #04364A;
     display: flex;
     position: fixed;
@@ -33,7 +33,7 @@ body{
     font-size: 1rem;
 }
 
-.header-elements-left{
+.header-elements-left {
     display: flex;
     position: relative;
     justify-content: center;
@@ -44,7 +44,7 @@ body{
     height: 10vh;
 }
 
-.header-elements-right{
+.header-elements-right {
     height: 10vh;
     display: flex;
     flex-direction: row;
@@ -55,12 +55,13 @@ body{
     padding: 0 4rem;
 }
 
-h1, h2{
+h1,
+h2 {
     padding: 0;
     margin: 0;
 }
 
-.first-page{
+.first-page {
     width: 100%;
     height: 100vh;
     background-color: #AAD9BB;
@@ -73,7 +74,7 @@ h1, h2{
     color: #04364A;
 }
 
-.first-page-left{
+.first-page-left {
     display: flex;
     position: relative;
     width: 50vw;
@@ -84,18 +85,18 @@ h1, h2{
     row-gap: 2rem;
 }
 
-.first-page-left-font{
+.first-page-left-font {
     font-size: 3rem;
 }
 
-.first-page-right{
+.first-page-right {
     display: flex;
     position: relative;
     width: 50vw;
     height: 100vh;
 }
 
-.first-left-button{
+.first-left-button {
     width: 10vw;
     height: 5vh;
     background-color: #04364A;
@@ -107,7 +108,7 @@ h1, h2{
     font-weight: 600;
 }
 
-.first-left-button:hover{
+.first-left-button:hover {
     background-color: #104f64;
     color: #ECF4D6;
     font-family: poppins;
@@ -115,7 +116,7 @@ h1, h2{
     cursor: pointer;
 }
 
-.second-page{
+.second-page {
     width: 100%;
     height: 100vh;
     background-color: #ECF4D6;
@@ -124,7 +125,7 @@ h1, h2{
     justify-content: center;
 }
 
-.second-page-heading{
+.second-page-heading {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -132,7 +133,7 @@ h1, h2{
 }
 
 
-.second-page-heading-title{
+.second-page-heading-title {
     display: flex;
     position: relative;
     height: fit-content;
@@ -143,7 +144,7 @@ h1, h2{
 }
 
 
-.second-page-heading-subtitle{
+.second-page-heading-subtitle {
     height: fit-content;
     display: flex;
     position: relative;
@@ -151,10 +152,10 @@ h1, h2{
     font-size: 1rem;
     font-weight: 600;
     color: #04364A;
-    transform: translate(40%,-40%);
+    transform: translate(40%, -40%);
 }
 
-.display{
+.display {
     width: 100%;
     height: 50vh;
     display: flex;
@@ -166,20 +167,20 @@ h1, h2{
     transform: translateY(20%);
 }
 
-.img1{
+.img1 {
     width: 15vw;
     height: 50vh;
     filter: grayscale(100%);
     transition: filter 0.1s ease;
 }
 
-.img1:hover{
+.img1:hover {
     transform: scale(1.1);
     filter: grayscale(0%);
     cursor: pointer;
 }
 
-.img2{
+.img2 {
     width: 12vw;
     height: 50vh;
     transform: translateY(5%);
@@ -187,52 +188,52 @@ h1, h2{
     transition: filter 0.1s ease;
 }
 
-.img2:hover{
+.img2:hover {
     transform: scale(1.1);
     filter: grayscale(0%);
     cursor: pointer;
 }
 
-.img3{
+.img3 {
     width: 17vw;
     height: 50vh;
     filter: grayscale(100%);
     transition: filter 0.1s ease;
 }
 
-.img3:hover{
+.img3:hover {
     transform: scale(1.1);
     filter: grayscale(0%);
     cursor: pointer;
 }
 
-.img4{
+.img4 {
     width: 15vw;
     height: 50vh;
     filter: grayscale(100%);
     transition: filter 0.1s ease;
 }
 
-.img4:hover{
+.img4:hover {
     transform: scale(1.1);
     filter: grayscale(0%);
     cursor: pointer;
 }
 
-.img5{
+.img5 {
     width: 20vw;
     height: 35vh;
     filter: grayscale(100%);
     transition: filter 0.1s ease;
 }
 
-.img5:hover{
+.img5:hover {
     transform: scale(1.1);
     filter: grayscale(0%);
     cursor: pointer;
 }
 
-.second-page-button{
+.second-page-button {
     width: 10vw;
     height: 5vh;
     font-family: poppins;
@@ -246,13 +247,37 @@ h1, h2{
     font-size: 1.1rem;
 }
 
-.second-page-button:hover{
+.second-page-button:hover {
     cursor: pointer;
     text-decoration: underline;
 }
 
-.third-page{
+.third-page {
     width: 100%;
     height: 100vh;
     background-color: #FDF7E4;
+    position: relative;
+    display: flex;
+}
+
+.talakadu {
+    position: absolute;
+    display: flex;
+    height: 100%;
+    width: 40rem;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(-1);
+}
+
+.about-title {
+    color: #04364A;
+    font-family: kaftus;
+    position: relative;
+    display: flex;
+    font-size: 4rem;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    left: 40rem;
 }
