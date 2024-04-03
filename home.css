@@ -8,6 +8,11 @@
     src: url(fonts/Poppins-Regular.ttf);
 }
 
+@font-face {
+    font-family: licorice;
+    src: url(fonts/Licorice-Regular.ttf);
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -16,7 +21,9 @@ body {
 
 .logo {
     position: absolute;
-    right: 50%;
+    right: 47.5%;
+    font-family: licorice;
+    font-size: 2rem;
 }
 
 .header {
@@ -308,4 +315,9 @@ h2 {
     width: fit-content;
     top: 7rem;
     right: 3.5rem;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
 }
