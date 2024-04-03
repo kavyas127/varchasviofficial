@@ -8,11 +8,6 @@
     src: url(fonts/Poppins-Regular.ttf);
 }
 
-@font-face {
-    font-family: licorice;
-    src: url(fonts/Licorice-Regular.ttf);
-}
-
 body {
     margin: 0;
     padding: 0;
@@ -21,9 +16,9 @@ body {
 
 .logo {
     position: absolute;
-    right: 47.5%;
-    font-family: licorice;
-    font-size: 2rem;
+    right: 45.5%;
+    font-family: kaftus;
+    font-size: 1.5rem;
 }
 
 .header {
