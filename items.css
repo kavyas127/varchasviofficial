@@ -1,0 +1,71 @@
+@font-face {
+    font-family: kaftus;
+    src: url(fonts/Kaftus.ttf);
+}
+
+@font-face {
+    font-family: poppins;
+    src: url(fonts/Poppins-Regular.ttf);
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.logo {
+    position: absolute;
+    transform: translateX(43rem);
+    font-family: kaftus;
+    font-size: 1.5rem;
+}
+
+.header {
+    color: #04364A;
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    height: 10vh;
+    width: 100%;
+    align-items: center;
+    z-index: 100;
+    font-family: poppins;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.header-elements-left {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    column-gap: 4rem;
+    padding: 0 4rem;
+    height: 10vh;
+}
+
+.header-elements-right {
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    column-gap: 4rem;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    padding: 0 4rem;
+}
+
+body{
+    background-color: #ECF4D6;
+}

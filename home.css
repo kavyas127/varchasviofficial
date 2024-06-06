@@ -8,6 +8,10 @@
     src: url(fonts/Poppins-Regular.ttf);
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     padding: 0;
