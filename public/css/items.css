@@ -1,0 +1,154 @@
+@font-face {
+    font-family: kaftus;
+    src: url(/fonts/Kaftus.ttf);
+}
+
+@font-face {
+    font-family: poppins;
+    src: url(/fonts/Poppins-Regular.ttf);
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.logo {
+    position: absolute;
+    transform: translateX(43rem);
+    font-family: kaftus;
+    font-size: 1.5rem;
+}
+
+.header {
+    color: #04364A;
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    height: 10vh;
+    width: 100%;
+    align-items: center;
+    z-index: 100;
+    font-family: poppins;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.header-elements-left {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    column-gap: 4rem;
+    padding: 0 4rem;
+    height: 10vh;
+}
+
+.header-elements-right {
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    column-gap: 4rem;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    padding: 0 4rem;
+}
+
+body{
+    background-color: #ECF4D6;
+}
+
+.main{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 2rem;
+    transform: translate(-4rem, 2rem);
+    padding: 4rem;
+}
+
+.lines{
+    display: flex;
+    flex-direction: row;
+    column-gap: 9rem;
+}
+
+.item-box{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    width: 20vw;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.img1 {
+    width: 15vw;
+    height: 50vh;
+}
+
+.img2 {
+    width: 12vw;
+    height: 50vh;
+    transform: translateY(5%);
+}
+
+.img3 {
+    width: fit-content;
+    height: 33vh;
+    transform: translateY(4rem);
+}
+
+.add-cart{
+    background-color: #04364A;
+    height: 2rem;
+    border-radius: 1rem;
+    color: #ECF4D6;
+    cursor: pointer;
+    width: 13vw;
+    font-family: poppins;
+}
+
+.add-cart:hover{
+    color: #ECF4D6;
+    background-color: #104f64;
+}
+
+.add-cart.clicked {
+    background-color: #ECF4D6; /* Button color after clicking */
+    color: #04364A; /* Text color after clicking */
+}
+
+.img4 {
+    width: 15vw;
+    height: 50vh;
+}
+
+.img5{
+    width: fit-content;
+    height: 20rem;
+}
+
+.go-to-cart{
+    transform: translateY(1rem);
+    font-size: 1.3rem;
+    font-family: poppins;
+}
+
+.go-to-cart:hover{
+    text-decoration: underline;
+}
