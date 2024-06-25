@@ -113,9 +113,25 @@ body{
     transform: translateY(4rem);
 }
 
+.buttons-div{
+    display: flex;
+    flex-direction: row;
+    column-gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.price{
+    font-family: poppins;
+    font-size: 1rem;
+    border: solid 0.1rem #04364A;
+    padding: 0.45rem;
+    border-radius: 1rem;
+}
+
 .add-cart{
     background-color: #04364A;
-    height: 2rem;
+    height: 2.6rem;
     border-radius: 1rem;
     color: #ECF4D6;
     cursor: pointer;
@@ -131,6 +147,8 @@ body{
 .add-cart.clicked {
     background-color: #ECF4D6; /* Button color after clicking */
     color: #04364A; /* Text color after clicking */
+    border-radius: solid 0.1rem #04364A;
+    font-weight: 800;
 }
 
 .img4 {
