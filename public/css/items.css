@@ -332,3 +332,45 @@ td{
         width: 90%;
     }
 }
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h2 {
+    font-family: 'Kaftus', sans-serif;
+    font-size: 3rem;
+    color: #04364A;
+    margin-bottom: 2rem;
+}
+
+.home-button {
+    background-color: #04364A;
+    color: #ECF4D6;
+    border: none;
+    width: 6vw;
+    height: 7vh;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    text-decoration: none;
+    font-family: poppins;
+}
+
+.home-button:hover {
+    background-color: #104f64;
+    text-decoration: none;
+}
+
+.home-button a {
+    color: #ECF4D6;
+    text-decoration: none;
+}
+
+.home-button a:hover {
+    text-decoration: none;
+}

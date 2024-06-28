@@ -35,6 +35,10 @@ app.get("/", function (req, res) {
     res.render("home");
 });
 
+app.get("/thanks", function (req, res) {
+    res.render("thanks");
+});
+
 // Route to render items page
 app.get("/items", function (req, res) {
     // You can fetch items from a database or other sources if needed
