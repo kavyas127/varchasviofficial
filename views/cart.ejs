@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/items.css">
+    <title>Shopping Cart</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-elements-left">
+            <a href="/">
+                <div class="element">Home</div>
+            </a>
+        </div>
+        <div class="logo">Varchasvi</div>
+        <div class="header-elements-right">
+            <div class="icon"><a href="/items">Return to Shop</a></div>
+        </div>
+    </div>
+
+    <div class="main">
+        <h2 class="cart-title">Your Cart</h2>
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total Price</th> <!-- New column for Total Price -->
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% items.forEach(item => { %>
+                <tr>
+                    <td><%= item.name %></td>
+                    <td>₹<%= item.price %></td>
+                    <td>
+                        <form action="/updateQuantity" method="POST">
+                            <input type="hidden" name="itemName" value="<%= item.name %>">
+                            <button type="submit" name="action" value="decrease" <%= item.quantity === 1 ? 'disabled' : '' %>>-</button>
+                            <span><%= item.quantity %></span>
+                            <button type="submit" name="action" value="increase">+</button>
+                        </form>
+                    </td>
+                    <td>₹<%= item.price * item.quantity %></td> <!-- Display total price dynamically -->
+                    <td>
+                        <form action="/removeItem" method="POST">
+                            <input type="hidden" name="itemName" value="<%= item.name %>">
+                            <button type="submit">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+
+
+    <script src="js/cart.js"></script>
+</body>
+
+</html>

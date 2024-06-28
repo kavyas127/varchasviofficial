@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" >
-    <link rel="stylesheet" href="css/items.css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/items.css">
     <title>Items</title>
 </head>
 
@@ -26,83 +26,109 @@
         <div class="lines">
             <div class="item-box">
                 <img src="imgs/download__2_.png" class="img1" alt="img-1">
-                <div class="buttons-div">
-                    <p class="price">₹400</p>
-                    <button class="add-cart" name="Venkata Ramana Doll Set" onclick="toggleCart(this)">Add to Cart</button>
-                </div>
+                <form id="itemForm1" action="/cart" method="POST">
+                    <input type="hidden" name="itemName" value="Venkata Ramana Doll Set">
+                    <div class="buttons-div">
+                        <p class="price">₹400</p>
+                        <button type="button" class="add-cart" onclick="addToCart('itemForm1')">Add to Cart</button>
+                    </div>
+                </form>
             </div>
 
             <div class="item-box">
                 <img src="imgs/download__3_-removebg-preview.png" class="img2" alt="img-1">
-                <div class="buttons-div">
-                    <p class="price">₹250</p>
-                    <button class="add-cart" name="Doll" onclick="toggleCart(this)">Add to Cart</button>
-                </div>
+                <form id="itemForm2" action="/cart" method="POST">
+                    <input type="hidden" name="itemName" value="Doll">
+                    <div class="buttons-div">
+                        <p class="price">₹250</p>
+                        <button type="button" class="add-cart" onclick="addToCart('itemForm2')">Add to Cart</button>
+                    </div>
+                </form>
             </div>
 
             <div class="item-box">
                 <img src="imgs/Kobri__dry_coconut_alankara-removebg-preview.png" class="img3" alt="img-1">
-                <div class="buttons-div">
-                    <p class="price">₹300</p>
-                    <button class="add-cart" name="Dry Coconut Decoration" onclick="toggleCart(this)">Add to Cart</button>
-                </div>
+                <form id="itemForm3" action="/cart" method="POST">
+                    <input type="hidden" name="itemName" value="Dry Coconut Decoration">
+                    <div class="buttons-div">
+                        <p class="price">₹300</p>
+                        <button type="button" class="add-cart" onclick="addToCart('itemForm3')">Add to Cart</button>
+                    </div>
+                </form>
             </div>
         </div>
 
         <div class="lines">
             <div class="item-box">
                 <img src="imgs/download__4_-removebg-preview.png" class="img1" alt="img-1">
-                <div class="buttons-div">
-                    <p class="price">₹350</p>
-                    <button class="add-cart" name="Couple Doll Set" onclick="toggleCart(this)">Add to Cart</button>
-                </div>
+                <form id="itemForm4" action="/cart" method="POST">
+                    <input type="hidden" name="itemName" value="Couple Doll Set">
+                    <div class="buttons-div">
+                        <p class="price">₹350</p>
+                        <button type="button" class="add-cart" onclick="addToCart('itemForm4')">Add to Cart</button>
+                    </div>
+                </form>
             </div>
 
             <div class="item-box">
                 <img src="imgs/Kumbakonam___redscarab-removebg-preview.png" class="img4" alt="img-1">
-                <div class="buttons-div">
-                    <p class="price">₹400</p>
-                    <button class="add-cart" name="Wooden Couple Doll Set" onclick="toggleCart(this)">Add to Cart</button>
-                </div>
+                <form id="itemForm5" action="/cart" method="POST">
+                    <input type="hidden" name="itemName" value="Wooden Couple Doll Set">
+                    <div class="buttons-div">
+                        <p class="price">₹400</p>
+                        <button type="button" class="add-cart" onclick="addToCart('itemForm5')">Add to Cart</button>
+                    </div>
+                </form>
             </div>
 
             <div class="item-box">
                 <img src="imgs/jewellery.png" class="img3" alt="img-1">
-                <div class="buttons-div">
-                    <p class="price">₹200</p>
-                    <button class="add-cart" name="Spun Jewellery" onclick="toggleCart(this)">Add to Cart</button>
-                </div>
+                <form id="itemForm6" action="/cart" method="POST">
+                    <input type="hidden" name="itemName" value="Spun Jewellery">
+                    <div class="buttons-div">
+                        <p class="price">₹200</p>
+                        <button type="button" class="add-cart" onclick="addToCart('itemForm6')">Add to Cart</button>
+                    </div>
+                </form>
             </div>
         </div>
 
         <div class="lines">
             <div class="item-box">
                 <img src="imgs/beads mat.png" class="img5" alt="img-1">
-                <div class="buttons-div">
-                    <p class="price">₹250</p>
-                    <button class="add-cart" name="Beads Mat" onclick="toggleCart(this)">Add to Cart</button>
-                </div>
+                <form id="itemForm7" action="/cart" method="POST">
+                    <input type="hidden" name="itemName" value="Beads Mat">
+                    <div class="buttons-div">
+                        <p class="price">₹250</p>
+                        <button type="button" class="add-cart" onclick="addToCart('itemForm7')">Add to Cart</button>
+                    </div>
+                </form>
             </div>
 
             <div class="item-box">
                 <img src="imgs/tanja.png" class="img5" alt="img-1">
-                <div class="buttons-div">
-                    <p class="price">₹350</p>
-                    <button class="add-cart" name="Tanjore Doll" onclick="toggleCart(this)">Add to Cart</button>
-                </div>
+                <form id="itemForm8" action="/cart" method="POST">
+                    <input type="hidden" name="itemName" value="Tanjore Doll">
+                    <div class="buttons-div">
+                        <p class="price">₹350</p>
+                        <button type="button" class="add-cart" onclick="addToCart('itemForm8')">Add to Cart</button>
+                    </div>
+                </form>
             </div>
 
             <div class="item-box">
                 <img src="imgs/Holder Beats.png" class="img3" alt="img-1">
-                <div class="buttons-div">
-                    <p class="price">₹200</p>
-                    <button class="add-cart" name="Beads Bowl" onclick="toggleCart(this)">Add to Cart</button>
-                </div>
+                <form id="itemForm9" action="/cart" method="POST">
+                    <input type="hidden" name="itemName" value="Beads Bowl">
+                    <div class="buttons-div">
+                        <p class="price">₹200</p>
+                        <button type="button" class="add-cart" onclick="addToCart('itemForm9')">Add to Cart</button>
+                    </div>
+                </form>
             </div>
         </div>
-        <a href="" class="go-to-cart">Go To Cart <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="/cart" class="go-to-cart">Go To Cart <i class="fa-solid fa-arrow-right"></i></a>
     </div>
-
     <script src="js/items.js"></script>
 </body>
 

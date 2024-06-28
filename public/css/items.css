@@ -170,3 +170,9 @@ body{
 .go-to-cart:hover{
     text-decoration: underline;
 }
+
+.cart-title{
+    font-family: kaftus;
+    font-size: 4rem;
+    color: #04364A;
+}
