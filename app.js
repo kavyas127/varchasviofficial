@@ -1,13 +1,20 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
+const session = require('express-session');
 
 const app = express();
 
+// Set up middleware
 app.set('view engine', 'ejs');
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
+app.use(session({
+    secret: 'your_secret_key',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false } // Adjust options as needed
+}));
 
 // Sample data for items and their prices
 const itemPrices = {
@@ -23,15 +30,14 @@ const itemPrices = {
     // Add more items as needed
 };
 
-let cartItems = [];
-
-// Render home page
+// Route to render home page
 app.get("/", function (req, res) {
     res.render("home");
 });
 
-// Render items page
+// Route to render items page
 app.get("/items", function (req, res) {
+    // You can fetch items from a database or other sources if needed
     res.render("items");
 });
 
@@ -40,43 +46,49 @@ app.post('/cart', (req, res) => {
     const itemName = req.body.itemName;
     const itemPrice = getItemPrice(itemName);
 
-    // Check if item is already in cart
-    const existingItem = cartItems.find(item => item.name === itemName);
+    // Initialize cart in session if not already present
+    req.session.cartItems = req.session.cartItems || [];
+
+    // Check if item already exists in cart
+    const existingItem = req.session.cartItems.find(item => item.name === itemName);
+
     if (existingItem) {
-        existingItem.quantity += 1; // Increase quantity if item exists
-        existingItem.totalPrice = existingItem.price * existingItem.quantity; // Update total price
+        existingItem.quantity++;
+        existingItem.totalPrice = existingItem.price * existingItem.quantity;
     } else {
-        cartItems.push({ name: itemName, price: itemPrice, quantity: 1, totalPrice: itemPrice }); // Add new item to cart
+        // Add item to session cart
+        req.session.cartItems.push({ name: itemName, price: itemPrice, quantity: 1, totalPrice: itemPrice });
     }
-    
+
     res.sendStatus(200); // Respond with success status
 });
 
-// Render cart page with cartItems data
+// Handle GET request to render cart page
 app.get('/cart', (req, res) => {
-    res.render('cart', { items: cartItems });
-});
+    // Retrieve cart items from session
+    const cartItems = req.session.cartItems || [];
 
-// Function to get item price based on itemName
-function getItemPrice(itemName) {
-    return itemPrices[itemName] || 0; // Return 0 if item price not found (handle as needed)
-}
+    // Calculate the total amount
+    const totalAmount = cartItems.reduce((total, item) => total + item.totalPrice, 0);
+
+    res.render('cart', { items: cartItems, totalAmount: totalAmount });
+});
 
 // Handle POST request to update item quantity in cart
 app.post('/updateQuantity', (req, res) => {
     const itemName = req.body.itemName;
     const action = req.body.action;
 
-    // Find item in cartItems array
-    const item = cartItems.find(item => item.name === itemName);
+    // Find item in session cartItems
+    const item = req.session.cartItems.find(item => item.name === itemName);
 
     if (item) {
         if (action === 'increase') {
-            item.quantity = item.quantity + 1;
+            item.quantity++;
             item.totalPrice = item.price * item.quantity; // Update total price
         } else if (action === 'decrease') {
             if (item.quantity > 1) {
-                item.quantity = item.quantity - 1;
+                item.quantity--;
                 item.totalPrice = item.price * item.quantity; // Update total price
             }
         }
@@ -89,13 +101,18 @@ app.post('/updateQuantity', (req, res) => {
 app.post('/removeItem', (req, res) => {
     const itemName = req.body.itemName;
 
-    // Remove item from cartItems array
-    cartItems = cartItems.filter(item => item.name !== itemName);
-    
+    // Remove item from session cartItems
+    req.session.cartItems = req.session.cartItems.filter(item => item.name !== itemName);
+
     res.redirect('/cart'); // Redirect back to cart page after removing item
 });
 
+// Function to get item price based on itemName
+function getItemPrice(itemName) {
+    return itemPrices[itemName] || 0; // Return 0 if item price not found (handle as needed)
+}
 
+// Start server
 app.listen(3000, function () {
     console.log("Server is running on port 3000");
 });

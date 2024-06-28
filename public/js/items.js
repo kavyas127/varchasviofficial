@@ -3,7 +3,7 @@ function toggleCart(button) {
         button.innerHTML = "Add to Cart";
         button.classList.remove("clicked");
     } else {
-        button.innerHTML = "Added to cart!";
+        button.innerHTML = "Added to Cart";
         button.classList.add("clicked");
     }
 }
@@ -22,7 +22,7 @@ function addToCart(formId) {
             console.log('Item added to cart:', itemName);
             // Optional: Update UI to indicate item added to cart (e.g., change button style)
             const button = form.querySelector('.add-cart');
-            button.classList.add('clicked');
+            toggleCart(button); // Toggle button state
         } else {
             console.log('Error adding item to cart:', xhr.statusText);
         }

@@ -70,6 +70,10 @@ body{
     background-color: #ECF4D6;
 }
 
+.cart-body{
+    background-color: #AAD9BB;
+}
+
 .main{
     width: 100vw;
     display: flex;
@@ -171,8 +175,65 @@ body{
     text-decoration: underline;
 }
 
+.main-cart{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    /* justify-content: center; */
+    align-items: center;
+}
+
 .cart-title{
     font-family: kaftus;
     font-size: 4rem;
     color: #04364A;
+    padding: 0;
+    border: 0;
+    transform: translateY(2.6rem);
 }
+
+.cart-table{
+    font-size: 1.2rem;
+    font-family: poppins;
+    border-spacing: 5rem 1rem;
+    color: #104f64;
+}
+
+.main-table-header{
+    text-decoration: underline;
+    color: #04364A;
+}
+
+td{
+    text-align: center; /* Center horizontally */
+    vertical-align: middle;
+}
+
+.cart-but, .remove-but{
+    background-color: #104f64;
+    color: #ECF4D6;
+    border-radius: 0.2rem;
+}
+
+.total {
+    font-weight: bold; /* Optional: make text bold */
+    text-align: center; /* Optional: center the text */
+}
+
+.total-label {
+    background-color: #ECF4D6; 
+    border-radius: 0.5rem;
+    font-weight: bold; /* Optional: make label text bold */
+}
+
+.total-value {
+    background-color: #ECF4D6;
+    border-radius: 0.5rem;
+    font-weight: bold; /* Optional: make total value text bold */
+}
+
+.cart-page{
+    transform: translate(20rem, 6rem);
+}
+
