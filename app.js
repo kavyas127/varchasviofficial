@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const session = require('express-session');
+const { MongoClient } = require('mongodb');
 
 const app = express();
 
@@ -15,6 +16,10 @@ app.use(session({
     saveUninitialized: true,
     cookie: { secure: false } // Adjust options as needed
 }));
+
+// MongoDB connection URL
+const mongoURL = 'mongodb://localhost:27017';
+const dbName = 'varchasvi'; // Replace with your database name
 
 // Sample data for items and their prices
 const itemPrices = {
@@ -30,13 +35,14 @@ const itemPrices = {
     // Add more items as needed
 };
 
+// Function to get item price based on itemName
+function getItemPrice(itemName) {
+    return itemPrices[itemName] || 0; // Return 0 if item price not found (handle as needed)
+}
+
 // Route to render home page
 app.get("/", function (req, res) {
     res.render("home");
-});
-
-app.get("/thanks", function (req, res) {
-    res.render("thanks");
 });
 
 // Route to render items page
@@ -45,6 +51,7 @@ app.get("/items", function (req, res) {
     res.render("items");
 });
 
+// Route to render billing page
 app.get("/billing", function (req, res) {
     // You can fetch items from a database or other sources if needed
     res.render("billing");
@@ -69,6 +76,9 @@ app.post('/cart', (req, res) => {
         req.session.cartItems.push({ name: itemName, price: itemPrice, quantity: 1, totalPrice: itemPrice });
     }
 
+    // Recalculate total amount and store in session
+    req.session.totalAmount = req.session.cartItems.reduce((total, item) => total + item.totalPrice, 0);
+
     res.sendStatus(200); // Respond with success status
 });
 
@@ -78,7 +88,7 @@ app.get('/cart', (req, res) => {
     const cartItems = req.session.cartItems || [];
 
     // Calculate the total amount
-    const totalAmount = cartItems.reduce((total, item) => total + item.totalPrice, 0);
+    const totalAmount = req.session.totalAmount || 0;
 
     res.render('cart', { items: cartItems, totalAmount: totalAmount });
 });
@@ -94,14 +104,16 @@ app.post('/updateQuantity', (req, res) => {
     if (item) {
         if (action === 'increase') {
             item.quantity++;
-            item.totalPrice = item.price * item.quantity; // Update total price
         } else if (action === 'decrease') {
             if (item.quantity > 1) {
                 item.quantity--;
-                item.totalPrice = item.price * item.quantity; // Update total price
             }
         }
+        item.totalPrice = item.price * item.quantity; // Update total price
     }
+
+    // Recalculate total amount and store in session
+    req.session.totalAmount = req.session.cartItems.reduce((total, item) => total + item.totalPrice, 0);
 
     res.redirect('/cart'); // Redirect back to cart page after updating
 });
@@ -113,15 +125,60 @@ app.post('/removeItem', (req, res) => {
     // Remove item from session cartItems
     req.session.cartItems = req.session.cartItems.filter(item => item.name !== itemName);
 
+    // Recalculate total amount and store in session
+    req.session.totalAmount = req.session.cartItems.reduce((total, item) => total + item.totalPrice, 0);
+
     res.redirect('/cart'); // Redirect back to cart page after removing item
 });
 
-// Function to get item price based on itemName
-function getItemPrice(itemName) {
-    return itemPrices[itemName] || 0; // Return 0 if item price not found (handle as needed)
-}
+// Route to handle submitting the billing form
+app.post('/submit-form', async (req, res) => {
+    const customerData = {
+        name: req.body.name,
+        phone: req.body.phone,
+        address: req.body.address
+    };
+
+    try {
+        // Connect to MongoDB and store customerData and cartItems
+        const client = await MongoClient.connect(mongoURL, { useUnifiedTopology: true });
+        const db = client.db(dbName);
+        const collection = db.collection('orders'); // Collection name for orders
+
+        console.log('Connected to MongoDB');
+
+        // Save customer data and cart items to MongoDB
+        const result = await collection.insertOne({
+            customer: customerData,
+            items: req.session.cartItems,
+            totalAmount: req.session.totalAmount,
+            timestamp: new Date()
+        });
+
+        console.log('Order successfully stored in MongoDB:', result.insertedId);
+
+        // Clear cart after order is stored
+        req.session.cartItems = [];
+        req.session.totalAmount = 0;
+
+        // Close MongoDB connection
+        client.close();
+
+        // Redirect to thank you page
+        res.redirect('/thanks');
+    } catch (error) {
+        console.error('Error storing order in MongoDB:', error);
+        res.status(500).send('Error storing order');
+    }
+});
+
+// Route to render thank you page
+app.get("/thanks", function (req, res) {
+    res.render("thanks");
+});
 
 // Start server
-app.listen(3000, function () {
-    console.log("Server is running on port 3000");
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });

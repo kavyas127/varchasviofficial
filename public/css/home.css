@@ -100,6 +100,8 @@ h2 {
     position: relative;
     width: 50vw;
     height: 100vh;
+    justify-content: center;
+    align-items: center;
 }
 
 .first-left-button {
@@ -321,3 +323,8 @@ a{
     color: inherit;
 }
 
+.imgyes{
+    width: fit-content;
+    height: 80vh;
+    transform: translateY(1.5rem);
+}
