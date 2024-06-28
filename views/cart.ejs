@@ -35,39 +35,51 @@
                 </tr>
             </thead>
             <tbody>
-                <% items.forEach(item => { %>
-                <tr>
-                    <td><%= item.name %></td>
-                    <td>₹<%= item.price %></td>
-                    <td>
-                        <form action="/updateQuantity" method="POST">
-                            <input type="hidden" name="itemName" value="<%= item.name %>">
-                            <button class="cart-but" type="submit" name="action" value="decrease" <%= item.quantity === 1 ? 'disabled' : '' %>>-</button>
-                            <span><%= item.quantity %></span>
-                            <button class="cart-but" type="submit" name="action" value="increase">+</button>
-                        </form>
-                    </td>
-                    <td>₹<%= item.price * item.quantity %></td> <!-- Display total price dynamically -->
-                    <td>
-                        <form action="/removeItem" method="POST">
-                            <input type="hidden" name="itemName" value="<%= item.name %>">
-                            <button class="remove-but" type="submit">Remove</button>
-                        </form>
-                    </td>
-                </tr>
-                <% }) %>
-                <!-- New row for total amount -->
-                <tr class="total">
-                    <td colspan="1" class="total-label">Total Amount</td>
-                    <td></td>
-                    <td></td>
-                    <td colspan="1" class="total-value">₹<%= totalAmount %></td>
-                    <td></td>
-                </tr>
+                <% items.forEach(item=> { %>
+                    <tr>
+                        <td>
+                            <%= item.name %>
+                        </td>
+                        <td>₹<%= item.price %>
+                        </td>
+                        <td>
+                            <form action="/updateQuantity" method="POST">
+                                <input type="hidden" name="itemName" value="<%= item.name %>">
+                                <button class="cart-but" type="submit" name="action" value="decrease"
+                                    <%=item.quantity===1 ? 'disabled' : '' %>>-</button>
+                                <span>
+                                    <%= item.quantity %>
+                                </span>
+                                <button class="cart-but" type="submit" name="action" value="increase">+</button>
+                            </form>
+                        </td>
+                        <td>₹<%= item.price * item.quantity %>
+                        </td> <!-- Display total price dynamically -->
+                        <td>
+                            <form action="/removeItem" method="POST">
+                                <input type="hidden" name="itemName" value="<%= item.name %>">
+                                <button class="remove-but" type="submit">Remove</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <% }) %>
+                        <!-- New row for total amount -->
+                        <tr class="total">
+                            <td colspan="1" class="total-label">Total Amount</td>
+                            <td></td>
+                            <td></td>
+                            <td colspan="1" class="total-value">₹<%= totalAmount %>
+                            </td>
+                            <td></td>
+                        </tr>
             </tbody>
         </table>
 
-        <a href="/billing" class="go-to-cart cart-page">Proceed to Billing <i class="fa-solid fa-arrow-right"></i></a>
+        <div class="cart-page"><a href="/items" class="go-to-cart cart-page"><i class="fa-solid fa-arrow-left"></i> Return To Shop</a>
+            <a href="/billing" class="go-to-cart cart-page">Proceed to Billing <i
+                    class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
     </div>
 
     <script src="js/cart.js"></script>

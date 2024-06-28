@@ -41,6 +41,11 @@ app.get("/items", function (req, res) {
     res.render("items");
 });
 
+app.get("/billing", function (req, res) {
+    // You can fetch items from a database or other sources if needed
+    res.render("billing");
+});
+
 // Handle POST request to add item to cart
 app.post('/cart', (req, res) => {
     const itemName = req.body.itemName;
